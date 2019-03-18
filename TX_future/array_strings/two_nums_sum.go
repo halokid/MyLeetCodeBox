@@ -38,11 +38,27 @@ func twoSum2(nums []int, target int) []int {
   return []int{}
 }
 
+// 一遍哈希表
+func twoSum3(nums []int, target int) []int {
+  hashMap := make(map[int]int)
+  for i := 0; i < len(nums); i++ {
+    complement := target - nums[i]
+
+    if _, ok := hashMap[complement]; ok {
+      return []int{i, hashMap[complement]}
+    }
+
+    hashMap[nums[i]] = i
+  }
+  return []int{}
+}
+
 func main() {
   nums := []int{2, 7, 11, 15}
   target := 13
   fmt.Println(twoSum1(nums, target))
   fmt.Println(twoSum2(nums, target))
+  fmt.Println(twoSum3(nums, target))
 }
 
 
