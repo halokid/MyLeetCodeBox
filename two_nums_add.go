@@ -12,26 +12,77 @@
 输出：7 -> 0 -> 8
 原因：342 + 465 = 807
  */
-package MyLeetCodeBox
+package main
+
+import "fmt"
 
 type ListNode struct {
   Val     int
   Next    *ListNode
 }
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-
+func reverse(s []int) []int {
+  for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+    s[i], s[j] = s[j], s[i]
+  }
+  return s
 }
 
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+  l1Num := []int{l1.Val}
+  l2Num := []int{l2.Val}
+  //var tmpNode *ListNode
+  tmpNode1 := l1
+  tmpNode2 := l2
+  for {
+    //tmpNode = l1
+    if tmpNode1.Next != nil && tmpNode2.Next != nil {
+      tmpNode1 = tmpNode1.Next
+      tmpNode2 = tmpNode2.Next
+      l1Num = append(l1Num, tmpNode1.Val)
+      l2Num = append(l2Num, tmpNode2.Val)
+    } else if tmpNode1.Next == nil && tmpNode2.Next == nil {
+      break
+    }
+  }
+  fmt.Println(l1Num)
+  fmt.Println(l2Num)
 
+  // loop add
+  var l3Num []int
+  nextAdd := 0
+  for index, l1Item := range l1Num {
+    tmpNum := l1Item + l2Num[index]
+    if tmpNum >= 10 {
+      if nextAdd == 0 {
+        nextAdd = 1
+        tmpNum = tmpNum - 10
+      } else {
+        tmpNum = tmpNum - 10 + 1
+      }
+      l3Num = append(l3Num, tmpNum)
+    } else {
+      l3Num = append(l3Num, tmpNum + nextAdd)
+      nextAdd = 0
+    }
+  }
+  fmt.Println(l3Num)
 
+  return nil
+}
 
+func main() {
+  l1C := ListNode{3, nil}
+  l1B := ListNode{4, &l1C}
+  l1A := ListNode{2, &l1B}
 
+  l2C := ListNode{4, nil}
+  l2B := ListNode{6, &l2C}
+  l2A := ListNode{5, &l2B}
 
-
-
-
-
+  l3 := addTwoNumbers(&l1A, &l2A)
+  fmt.Printf("%v\n", l3)
+}
 
 
 
