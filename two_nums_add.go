@@ -42,6 +42,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
       l1Num = append(l1Num, tmpNode1.Val)
       l2Num = append(l2Num, tmpNode2.Val)
     } else if tmpNode1.Next == nil && tmpNode2.Next == nil {
+      //l1Num = append(l1Num, tmpNode1.Val)
+      //l2Num = append(l2Num, tmpNode2.Val)
       break
     }
   }
@@ -66,22 +68,58 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
       nextAdd = 0
     }
   }
+  if len(l3Num) == 1 &&  l1Num[0]+l2Num[0] >= 10 {
+    l3Num = append(l3Num, 1)
+  }
+  /**
+  else if len(l3Num) == 1 &&  l1Num[0]+l2Num[0] < 10 {
+    l3Num = []int{0}
+  }
+  **/
   fmt.Println(l3Num)
 
-  return nil
+  fmt.Println("----------------------------------------")
+
+  var l3 []ListNode
+  //var l3Item  ListNode
+  var tmpItem *ListNode
+  for i := len(l3Num)-1; i >= 0; i-- {
+    if tmpItem == nil {
+      //println("xx")
+      l3Item := ListNode{l3Num[i], nil}
+      tmpItem = &l3Item
+      l3 = append(l3, l3Item)
+    } else {
+      //println("yy")
+      l3Item := ListNode{l3Num[i], tmpItem}
+      tmpItem = &l3Item
+      l3 = append(l3, l3Item)
+    }
+  }
+  fmt.Printf("%v\n", l3)
+  return &l3[len(l3Num)-1]
 }
 
 func main() {
-  l1C := ListNode{3, nil}
-  l1B := ListNode{4, &l1C}
-  l1A := ListNode{2, &l1B}
+  //l1C := ListNode{3, nil}
+  //l1B := ListNode{4, &l1C}
+  //l1A := ListNode{2, &l1B}
 
-  l2C := ListNode{4, nil}
-  l2B := ListNode{6, &l2C}
-  l2A := ListNode{5, &l2B}
+  l1A := ListNode{1, nil}
+
+  //l2C := ListNode{4, nil}
+  //l2B := ListNode{6, &l2C}
+  //l2A := ListNode{5, &l2B}
+
+  l2A := ListNode{8, nil}
 
   l3 := addTwoNumbers(&l1A, &l2A)
   fmt.Printf("%v\n", l3)
+  fmt.Printf("%v\n", *l3)
+  fmt.Printf("%v\n", l3.Next)
+  fmt.Printf("%v\n", *l3.Next)
+  fmt.Printf("%v\n", l3.Next.Next)
+  fmt.Printf("%v\n", *l3.Next.Next)
 }
 
 
