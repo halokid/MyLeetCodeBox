@@ -40,7 +40,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     }
 
     sum := x + y + carry
-    carry = sum / 10
+    carry = sum / 10      // 如果 carry大于10， 则carry为1
     curr.Next = &ListNode{sum % 10, nil}
     curr = curr.Next
 
@@ -52,7 +52,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     curr.Next = &ListNode{carry, nil}
   }
 
-  return l3.Next
+  return l3.Next      // 第一次赋值curr 的时候改了 l3 的next， 后面就是直接改 curr本身的了，当然也是改l3链上的，所以返回 l3.Next 是可以一直追下去的
 }
 
 func main() {
