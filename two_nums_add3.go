@@ -40,7 +40,9 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
     }
 
     sum := x + y + carry
-    carry = sum / 10      // 如果 carry大于10， 则carry为1
+    carry = sum / 10      // 如果 sum大于10， 则carry为1, 否则carry为0
+
+    // 下面的计算方式是一种计算模型， 不断的用自身去代替下一个计算对象
     curr.Next = &ListNode{sum % 10, nil}
     curr = curr.Next
 
