@@ -12,9 +12,9 @@ import "fmt"
 
 示例：
 
-输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
-输出：7 -> 0 -> 8
-原因：342 + 465 = 807
+输入：(2 -> 4 -> 3) + (5 -> 5 -> 4)
+输出：7 -> 9 ->7
+原因：342 + 455 = 797
 
  */
 
@@ -26,10 +26,11 @@ import "fmt"
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
   //var l *ListNode = &ListNode{}
   l := &ListNode{}
+  // fixme: 改变pre就是改变l， 所以最后返回 l  是
   pre := l
   carry := 0
   for l1 != nil || l2 != nil {
-    pre.Next = &ListNode{}      // 建立一个空的 ListNode 为前一个的Next
+    pre.Next = &ListNode{}      // 建立一个空的 ListNode 为前一个的Next,  定义pre的Next
     p := pre.Next         // fixme: 理解的关键， 这个是当前的节点
     x := 0
     y := 0
@@ -43,9 +44,10 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
       l2 = l2.Next
     }
 
-    p.Val = (x + y + carry) % 10
+    p.Val = (x + y + carry) % 10    //  赋值了 pre的 Val
     carry = (x + y + carry) / 10      // 返回除以10的整数， 为1
-    pre = p       // fixme: 理解的关键， 位置1: 下一个循环的前一个等于当前循环已经算出的p
+    pre = p       // fixme: 理解的关键， 位置1: 下一个循环的前一个等于当前循环已经算出的p, 定义pre的Val
+    fmt.Println("l xx  in func -------------- ", l)
   }
 
   // 两个相加的单链表都循环运算完成， 假如最后一个Next相加大于10， 则生成的链表最后一位val 为 carry， Next为空
@@ -54,6 +56,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
   }
 
   fmt.Println("l in func -------------- ", l)
+  fmt.Println("l Next in func -------------- ", l.Next)
+  fmt.Println("l xx n n   in func -------------- ", l.Next.Next)
   return l.Next
 }
 
@@ -62,9 +66,9 @@ func main() {
   l2 := ListNode{4, &l3}
   l1 := ListNode{3, &l2}
 
-  lx3 := ListNode{4, nil}
-  lx2 := ListNode{6, &lx3}
-  lx1 := ListNode{5, &lx2}
+  lx3 := ListNode{5, nil}
+  lx2 := ListNode{5, &lx3}
+  lx1 := ListNode{4, &lx2}
 
   ln := addTwoNumbers(&l1, &lx1)
   fmt.Printf("%v+\n", ln)
