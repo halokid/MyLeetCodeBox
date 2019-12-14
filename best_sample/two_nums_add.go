@@ -12,9 +12,9 @@ import "fmt"
 
 示例：
 
-输入：(2 -> 4 -> 3) + (5 -> 5 -> 4)
-输出：7 -> 9 ->7
-原因：342 + 455 = 797
+输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
+输出：7 -> 0 -> 8
+原因：342 + 465 = 807
 
  */
 
@@ -62,18 +62,20 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 func main() {
-  l3 := ListNode{2, nil}
+  l3 := ListNode{3, nil}
   l2 := ListNode{4, &l3}
-  l1 := ListNode{3, &l2}
+  l1 := ListNode{2, &l2}
 
-  lx3 := ListNode{5, nil}
-  lx2 := ListNode{5, &lx3}
-  lx1 := ListNode{4, &lx2}
+  lx3 := ListNode{4, nil}
+  lx2 := ListNode{6, &lx3}
+  lx1 := ListNode{5, &lx2}
 
   ln := addTwoNumbers(&l1, &lx1)
   fmt.Printf("%v+\n", ln)
   fmt.Printf("%v\n", ln)
   fmt.Printf("%t\n", ln)
+
+  fmt.Println("--------------------------")
   fmt.Println(ln)         // 输出 &{8 0xc00008e040}
   fmt.Println(ln.Next)
   fmt.Println(ln.Next.Next)
