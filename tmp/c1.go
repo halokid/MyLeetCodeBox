@@ -30,6 +30,7 @@ func deleteNode(head *ListNode, node *ListNode) {
   fmt.Println(l, l.Next )
 }
 
+/**
 func main() {
   l4 := ListNode{5, nil}
   l3 := ListNode{3, &l4}
@@ -40,3 +41,4 @@ func main() {
   //node := ListNode{Val: 2}
   deleteNode(&l1, &node)
 }
+*/
