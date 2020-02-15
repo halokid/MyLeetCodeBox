@@ -1,7 +1,7 @@
 /**
 循环结构体的数组
  */
-package test
+package main
 
 import (
   "fmt"
