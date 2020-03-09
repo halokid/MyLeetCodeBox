@@ -19,13 +19,31 @@ func TestEbullition(t *testing.T) {
   t.Log(array)
 }
 
+/**
+主要 冒泡排序不是两两交换， 而是把循环对比， 把最轻的交换到应该在的位置
+ */
 func (b Bubble) sort(array []int) {
   for i := 0; i < len(array); i++ {
     for j := i + 1; j < len(array); j++ {
-      if array[i] > array[j] {
+      if array[i] > array[j] {    // 最小的在左边
         array[i], array[j] = array[j], array[i]
       }
     }
   }
-
 }
+
+func (b Bubble) zSort(array []int) {
+  for i := 0; i < len(array); i++ {
+    for j := i + 1; j < len(array); j++ {
+      if array[i] < array[j] {      // 最大的在左边
+        array[i], array[j] = array[j], array[i]
+      }
+    }
+  }
+}
+
+
+
+
+
+
