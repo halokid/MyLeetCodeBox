@@ -42,6 +42,16 @@ func (b Bubble) zSort(array []int) {
   }
 }
 
+func bubbleSort(nums []int)  {
+  for i := 0; i < len(nums); i++ {
+    for j := 1; j < len(nums); j++ {
+      if nums[j] < nums[j - 1] {
+        // 交换
+        nums[j], nums[j - 1] = nums[j - 1], nums[j]
+      }
+    }
+  }
+}
 
 
 

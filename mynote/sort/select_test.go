@@ -33,5 +33,17 @@ func (s Sortor) sort(array []int) {
   }
 }
 
-
-
+func selectSort(nums []int) {
+  length := len(nums)
+  for i := 0; i < length; i++ {
+    maxIdx := 0
+    // 寻找最大的一个数， 保存索引值
+    for j := 1; j < length - i; j++ {
+      if nums[j] > nums[maxIdx] {
+        maxIdx = j
+      }
+      // 最大的移动到右边
+      nums[length - 1 - i], nums[maxIdx] = nums[maxIdx], nums[length - 1 - i]
+    }
+  }
+}
