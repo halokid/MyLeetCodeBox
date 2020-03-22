@@ -57,7 +57,7 @@ func QuickSort(arr []int, idxStart int, idxEnd int) {
 
   }   // END for all
 
-  // 将基准数放到 它 应该有的位置
+  // 将基准数放到 它 应该有的位置, 这个基准数就是已经确定好排序的数字了
   arr[i] = num
   // 将左边 进行同样的排序
   QuickSort(arr, idxStart, i)
