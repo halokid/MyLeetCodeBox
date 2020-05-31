@@ -2,7 +2,6 @@ package main
 
 import (
   "fmt"
-  "golang.org/x/text/currency"
   "log"
   "testing"
 )
@@ -39,13 +38,6 @@ func reverserList(currHead *ListNode) *ListNode {
   return prevHead
 }
 
-func reverserListRec(currHead *ListNode) *ListNode {
-  if currHead == nil || currHead.Next == nil {
-    return currHead
-  }
-  newHead := reverserListRec(currHead.Next)
-  currHead.Next.Next 
-}
 
 func TestReverseList(t *testing.T) {
   n3 := &ListNode{3, nil}
