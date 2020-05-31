@@ -8,17 +8,17 @@ import (
   "testing"
 )
 
-type ListNode struct {
+type ListNodex struct {
   Val       int
-  Next      *ListNode
+  Next      *ListNodex
 }
 
 func TestLoopStruct(t *testing.T)  {
-  c := ListNode{3, nil}
-  b := ListNode{2, &c}
-  a := ListNode{1, &b}
+  c := ListNodex{3, nil}
+  b := ListNodex{2, &c}
+  a := ListNodex{1, &b}
 
-  nodes := []ListNode{a, b, c}
+  nodes := []ListNodex{a, b, c}
   for index, res := range nodes {
     fmt.Printf("%d--------%v\n", index, res)
   }
