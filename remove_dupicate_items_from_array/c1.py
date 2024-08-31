@@ -3,21 +3,21 @@ from typing import List
 
 class Solution:
   def removeDuplicates(self, nums: List[int]) -> int:
-    i = 0
-    j = 1
+    left_point = 0
+    right_point = 1
 
-    while j < len(nums):
-      if nums[i] == nums[j]:
-        j += 1
+    while right_point < len(nums):
+      if nums[left_point] == nums[right_point]:
+        right_point += 1
       else:
-        nums[i + 1] = nums[j]
-        i += 1
-        j += 1
-      print('i: ', i, ', j: ', j)
+        nums[left_point + 1] = nums[right_point]
+        left_point += 1
+        right_point += 1
+      print('left_point: ', left_point, ', right_point: ', right_point)
 
     print(nums)
     # return len(nums)
-    return i+1
+    return left_point + 1
 
 if __name__ == '__main__':
   sl = Solution()

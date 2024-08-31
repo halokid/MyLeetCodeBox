@@ -1,20 +1,26 @@
 from typing import List
 
 class Solution:
-  def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-    """
-    Do not return anything, modify nums1 in-place instead.
-    """
-    l1 = m - 1
-    l2 = n - 1
-    l3 = m + n - 1
+  def majorityElement(self, nums: List[int]) -> int:
+    n = len(nums)
+    check_len = int(n / 2)    # get smaller int
 
-    while l2 >= 0:
-      if l1 >= 0 and nums1[l1] > nums2[l2]:
-        nums1[l3] = nums1[l1]
-        l1 -= 1
+    eles_map = dict()
+    for num in nums:
+      if num not in eles_map.keys():
+        eles_map[num] = 1
       else:
-        nums1[l3] = nums2[l2]
-        l2 -= 1
-      l3 -= 1
+        eles_map[num] += 1
+
+      if eles_map[num] > check_len:
+        return num
+
+    # print(eles_map)
+
+
+
+if __name__ == "__main__":
+  nums = [2, 2, 1, 1, 1, 2, 2]
+  sl = Solution()
+  print(sl.majorityElement(nums))
 
