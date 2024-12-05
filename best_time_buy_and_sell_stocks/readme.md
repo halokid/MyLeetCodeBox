@@ -1,29 +1,61 @@
-121 买卖股票的最佳时机
+238 Product of Array Except Self
 -----------------
 
-给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
 
-你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
-返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
+You must write an algorithm that runs in O(n) time and without using the division operation.
 
  
 
-示例 1：
+Example 1:
 
-输入：[7,1,5,3,6,4]
-输出：5
-解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
-示例 2：
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+Example 2:
 
-输入：prices = [7,6,4,3,1]
-输出：0
-解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
+ 
+
+Constraints:
+
+2 <= nums.length <= 105
+-30 <= nums[i] <= 30
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+ 
+
+Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+
+--------------------------------
+
+给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积 。
+
+题目数据 保证 数组 nums之中任意元素的全部前缀元素和后缀的乘积都在  32 位 整数范围内。
+
+请 不要使用除法，且在 O(n) 时间复杂度内完成此题。
+
+ 
+
+示例 1:
+
+输入: nums = [1,2,3,4]
+输出: [24,12,8,6]
+示例 2:
+
+输入: nums = [-1,1,0,-3,3]
+输出: [0,0,9,0,0]
  
 
 提示：
 
-1 <= prices.length <= 105
-0 <= prices[i] <= 104
+2 <= nums.length <= 105
+-30 <= nums[i] <= 30
+保证 数组 nums之中任意元素的全部前缀元素和后缀的乘积都在  32 位 整数范围内
+ 
+
+进阶：你可以在 O(1) 的额外空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组 不被视为 额外空间。）
+
 
