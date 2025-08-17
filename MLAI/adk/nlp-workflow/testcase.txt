@@ -1,0 +1,3 @@
+1. 先看一下jira里面的信息，输出这些信息
+2. 用这些信息查询一下有没有相关的requirements
+3. 帮忙写一个简单的交易系统软件开发的Requirement示例，并生成User Story

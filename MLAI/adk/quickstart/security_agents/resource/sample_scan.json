@@ -1,0 +1,57 @@
+{
+  "scan": {
+    "id": 12345,
+    "name": "Internal Network Vulnerability Scan",
+    "policy": "Advanced Scan",
+    "status": "completed",
+    "targets": ["192.168.1.10"],
+    "starttime": "2024-08-12T01:23:45Z",
+    "endtime": "2024-08-12T02:05:10Z"
+  },
+  "hosts": [
+    {
+      "hostname": "server01.local",
+      "ip": "192.168.1.10",
+      "operating_system": "Ubuntu 20.04.6 LTS",
+      "mac_address": "00:1A:2B:3C:4D:5E",
+      "vulnerabilities": [
+        {
+          "plugin_id": 10001,
+          "plugin_name": "OpenSSH < 8.2p1 Multiple Vulnerabilities",
+          "severity": "High",
+          "cvss_base_score": 7.8,
+          "cve": ["CVE-2020-14145", "CVE-2020-15778"],
+          "description": "The remote SSH service is affected by multiple vulnerabilities that could allow an attacker to execute arbitrary code or bypass security restrictions.",
+          "solution": "Upgrade to OpenSSH version 8.2p1 or later.",
+          "plugin_family": "SSH",
+          "first_found": "2024-08-12T01:24:10Z",
+          "last_seen": "2024-08-12T01:24:10Z"
+        },
+        {
+          "plugin_id": 20002,
+          "plugin_name": "Apache HTTP Server < 2.4.51 Multiple Vulnerabilities",
+          "severity": "Critical",
+          "cvss_base_score": 9.8,
+          "cve": ["CVE-2021-41773", "CVE-2021-42013"],
+          "description": "Apache HTTP Server is affected by a path traversal and remote code execution vulnerability.",
+          "solution": "Upgrade to Apache HTTP Server 2.4.51 or later.",
+          "plugin_family": "Web Servers",
+          "first_found": "2024-08-12T01:30:05Z",
+          "last_seen": "2024-08-12T01:30:05Z"
+        },
+        {
+          "plugin_id": 30003,
+          "plugin_name": "Outdated Software: OpenSSL 1.1.1",
+          "severity": "Medium",
+          "cvss_base_score": 5.9,
+          "cve": ["CVE-2022-0778"],
+          "description": "The OpenSSL library is outdated and contains known vulnerabilities.",
+          "solution": "Update to OpenSSL 1.1.1n or later.",
+          "plugin_family": "SSL/TLS",
+          "first_found": "2024-08-12T01:35:20Z",
+          "last_seen": "2024-08-12T01:35:20Z"
+        }
+      ]
+    }
+  ]
+}

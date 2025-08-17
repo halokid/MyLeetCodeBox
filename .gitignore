@@ -1,2 +1,3 @@
 /.idea
 /java/.mvn/wrapper
+.env

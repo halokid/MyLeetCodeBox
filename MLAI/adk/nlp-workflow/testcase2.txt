@@ -1,0 +1,1 @@
+I want to check my Jira ticket WPB-9444, give me info of it, and check if relative documentation in it. Then you can check this relative documentation in Confluence. And based on these info search if any requirements in our knowledge base. Finally transform all info to a user story and output it.
